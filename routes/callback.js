@@ -3,11 +3,9 @@
  */
 var express = require('express');
 var request = require('request');
-var line_conf = require('./line_conf.json');
-// var fixie_conf = require('./fixie_conf.json');
-
 var router = express.Router();
-// var proxy = request.defaults(fixie_conf);
+
+var line_conf = require('./line_conf.json');
 
     var headers = {
         'Content-Type': 'application/json; charset=UTF-8',
@@ -45,6 +43,11 @@ function recvOperation(content) {
         }
     sendMessage(id, content)
 }
+
+/* GET users listing. */
+router.get('/', function(req, res, next) {
+  res.send('hogeee');
+});
 
 router.post('/', (req, res, next) => {
     console.log('aaaaaaaaaaaaaaaaaaaaaaa');
